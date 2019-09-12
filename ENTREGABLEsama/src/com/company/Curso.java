@@ -28,6 +28,8 @@ public class Curso {
     }
 
 
+    //equals
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -44,9 +46,18 @@ public class Curso {
     }
 
     public Integer getCantidadDeAlumnosPermitidos() {
-
         return cantidadDeAlumnosPermitidos;
     }
+
+    public void setProfesorTitular(ProfesorTitular nuevoProfesorTitular){
+        profesorTitular = nuevoProfesorTitular;
+    }
+
+    public void setProfesorAdjunto(ProfesorAdjunto nuevoProfesorAdjunto) {
+        profesorAdjunto = nuevoProfesorAdjunto;
+    }
+
+
 
 
     //metodos
@@ -61,31 +72,13 @@ public class Curso {
         }
     }
 
-    /*private Boolean quedanCupos() {
-        if(listaDeAlumnosInscriptos.size() < cantidadDeAlumnosPermitidos){
-            return true;
-        }else{
-            return false;
-        }
-    }*/
-
-    public void eliminarAlumno(Alumno alumno){
-        listaDeAlumnosInscriptos.remove(alumno);
-        System.out.println("Alumno eliminado");
-        }
-
-    public void eliminarAlumnoPorCodigo(Integer unCodigoDeAlumno) {
-        Alumno alumnoARemover = buscarAlumnoPorCodigo(unCodigoDeAlumno);
-        eliminarAlumno(alumnoARemover);
+    public Boolean quedanCupos() {
+        return listaDeAlumnosInscriptos.size() < cantidadDeAlumnosPermitidos;
     }
 
-    private Alumno buscarAlumnoPorCodigo(Integer unCodigoDeAlumno) {
-        Alumno alumnoBuscado = null;
-        for (Alumno alumno : listaDeAlumnosInscriptos) {
-            if (alumno.getCodigoDeAlumno().equals(unCodigoDeAlumno)) {
-                alumnoBuscado = alumno;
-            }
-        }
-        return alumnoBuscado;
+    public void eliminarAlumno(Alumno alumnoBuscado){
+        listaDeAlumnosInscriptos.remove(alumnoBuscado);
     }
+
+
 }

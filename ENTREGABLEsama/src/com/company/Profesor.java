@@ -9,21 +9,21 @@ public class Profesor {
     private String nombre;
     private String apellido;
     private Integer antiguedad;
-    private Integer codigoDeProfesor;
+    private Integer codigoProfesor;
 
     //constructor
 
-    public Profesor(String nombre, String apellido, Integer antiguedad, Integer codigoDeProfesor){
+    public Profesor(String nombre, String apellido, Integer antiguedad, Integer codigoProfesor){
         this.nombre = nombre;
         this.apellido = apellido;
         this.antiguedad = antiguedad;
-        this.codigoDeProfesor = codigoDeProfesor;
+        this.codigoProfesor = codigoProfesor;
     }
 
     //getters/setters
 
     public Integer getCodigoDeProfesor(){
-        return codigoDeProfesor;
+        return codigoProfesor;
     }
 
     public Integer getAntiguedad(){
@@ -35,7 +35,7 @@ public class Profesor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Profesor profesor = (Profesor) o;
-        return Objects.equals(this.codigoDeProfesor, profesor.codigoDeProfesor);
+        return Objects.equals(this.codigoProfesor, profesor.codigoProfesor);
 
     }
 

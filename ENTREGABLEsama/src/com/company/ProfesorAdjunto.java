@@ -5,19 +5,19 @@ public class ProfesorAdjunto extends Profesor {
 
     //atributos
 
-    private Integer cantidadDeHorasDeConsulta;
+    private Integer cantidadDeHoras;
 
     //constructor
 
-    public ProfesorAdjunto(String nombre, String apellido, Integer antiguedad, Integer codigoDeProfesor, Integer cantidadDeHorasDeConsulta) {
-        super(nombre, apellido, antiguedad, codigoDeProfesor);
+    public ProfesorAdjunto(String nombre, String apellido, Integer antiguedad, Integer codigoProfesor, Integer cantidadDeHoras) {
+        super(nombre, apellido, antiguedad, codigoProfesor);
 
-        this.cantidadDeHorasDeConsulta = cantidadDeHorasDeConsulta;
+        this.cantidadDeHoras = cantidadDeHoras;
     }
 
     //getters
 
-    public Integer getCantidadDeHorasDeConsulta(){
-        return cantidadDeHorasDeConsulta;
+    public Integer getCantidadDeHoras(){
+        return cantidadDeHoras;
     }
 }

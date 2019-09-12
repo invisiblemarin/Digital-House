@@ -13,11 +13,9 @@ public class Inscripcion {
 
     //constructor
 
-    public Inscripcion(Alumno alumno, Curso curso, Date fechaDeInscripcion){
+    public Inscripcion(Alumno alumno, Curso curso){
         this.alumno = alumno;
         this.curso = curso;
         this.fechaDeInscripcion = new Date();
-
-
     }
 }
