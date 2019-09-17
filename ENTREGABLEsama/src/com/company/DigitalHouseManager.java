@@ -37,7 +37,7 @@ public class DigitalHouseManager {
     //dar de baja el curso
 
 
-    private void bajaCurso(Integer unCodigoDeCurso) {
+    public void bajaCurso(Integer unCodigoDeCurso) {
         Curso cursoBuscado = null;
         for (Curso curso : listaDeCursos) {
             if (curso.getCodigoDeCurso().equals(unCodigoDeCurso)) {
@@ -45,6 +45,7 @@ public class DigitalHouseManager {
             }
         }
         listaDeCursos.remove(cursoBuscado);
+        System.out.println("Curso eliminado");
     }
 
 
@@ -52,6 +53,7 @@ public class DigitalHouseManager {
 
     public void altaProfesorAdjunto(String nombre, String apellido, Integer codigoProfesor, Integer cantidadDeHoras) {
         listaDeProfesores.add(new ProfesorAdjunto(nombre, apellido, 0, codigoProfesor, cantidadDeHoras));
+        System.out.println("Profesor adjunto creado");
     }
 
 
@@ -59,12 +61,13 @@ public class DigitalHouseManager {
 
     public void altaProfesorTitular(String nombre, String apellido, Integer codigoProfesor, String especialidad) {
         listaDeProfesores.add(new ProfesorTitular(nombre, apellido, 0, codigoProfesor, especialidad));
+        System.out.println("Profesor titular creado");
     }
 
 
     //baja profesor
 
-    private void bajaProfesor(Integer unCodigoDeProfesor) {
+    public void bajaProfesor(Integer unCodigoDeProfesor) {
         Profesor profesorBuscado = null;
         for (Profesor profesor : listaDeProfesores) {
             if (profesor.getCodigoDeProfesor().equals(unCodigoDeProfesor)) {
@@ -72,13 +75,15 @@ public class DigitalHouseManager {
             }
         }
         listaDeProfesores.remove(profesorBuscado);
+        System.out.println("Profesor eliminado");
     }
 
 
     //alta alumno
 
-    private void altaAlumno(String nombre, String apellido, Integer codigoDeAlumno) {
+    public void altaAlumno(String nombre, String apellido, Integer codigoDeAlumno) {
         listaDeAlumnos.add(new Alumno(nombre, apellido, codigoDeAlumno));
+        System.out.println("Alumno creado");
     }
 
 
@@ -109,21 +114,25 @@ public class DigitalHouseManager {
 
     public void asignarProfesores(Integer codigoDeCurso, Integer codigoProfesorTitular, Integer codigoProfesorAdjunto){
 
-        Profesor profesorTitularBuscado = buscarProfesorPorCodigo(codigoProfesorTitular);
+        ProfesorTitular profesorTitularBuscado = (ProfesorTitular)buscarProfesorPorCodigo(codigoProfesorTitular);
 
-        Profesor profesorAdjuntoBuscado = buscarProfesorPorCodigo(codigoProfesorAdjunto);
+        ProfesorAdjunto profesorAdjuntoBuscado = (ProfesorAdjunto)buscarProfesorPorCodigo(codigoProfesorAdjunto);
 
         Curso cursoBuscado = buscarCursoPorCodigo(codigoDeCurso);
 
                 //setters de profesores?
 
+        cursoBuscado.setProfesorTitular(profesorTitularBuscado);
+        cursoBuscado.setProfesorAdjunto(profesorAdjuntoBuscado);
+
+        System.out.println("Profesores asignados");
     }
 
 
 
     //metodos para buscar
 
-    private Alumno buscarAlumnoPorCodigo(Integer unCodigoDeAlumno) {
+    public Alumno buscarAlumnoPorCodigo(Integer unCodigoDeAlumno) {
         Alumno alumnoBuscado = null;
         for (Alumno alumno : listaDeAlumnos) {
             if (alumno.getCodigoDeAlumno().equals(unCodigoDeAlumno)) {
@@ -134,7 +143,7 @@ public class DigitalHouseManager {
     }
 
 
-    private Curso buscarCursoPorCodigo(Integer unCodigoDeCurso) {
+    public Curso buscarCursoPorCodigo(Integer unCodigoDeCurso) {
         Curso cursoBuscado = null;
         for (Curso curso : listaDeCursos) {
             if (curso.getCodigoDeCurso().equals(unCodigoDeCurso)) {
@@ -145,7 +154,7 @@ public class DigitalHouseManager {
     }
 
 
-    private Profesor buscarProfesorPorCodigo(Integer unCodigoDeProfesor) {
+    public Profesor buscarProfesorPorCodigo(Integer unCodigoDeProfesor) {
         Profesor profesorBuscado = null;
         for (Profesor profesor : listaDeProfesores) {
             if (profesor.getCodigoDeProfesor().equals(unCodigoDeProfesor)) {

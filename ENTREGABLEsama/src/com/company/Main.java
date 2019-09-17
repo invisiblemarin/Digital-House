@@ -4,12 +4,34 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Alumno alumno = new Alumno("santiago", "marin", 123456);
-        Alumno alumno2 = new Alumno("manuel", "marin", 654321);
-        Alumno alumno3 = new Alumno("marina", "maccione", 676767);
+        DigitalHouseManager dhm = new DigitalHouseManager();
 
-        Curso curso = new Curso("fullstack",333, 5);
-        Curso curso2 = new Curso("mobile", 111,  7);
+        dhm.altaProfesorTitular("Pat","Lopez", 123456, "Boludeo");
+        dhm.altaProfesorTitular("Lopi", "Jimenez", 234567, "Gamer");
+        dhm.altaProfesorAdjunto("Jose", "Fermoso", 345678, 4);
+        dhm.altaProfesorAdjunto("Edu", "Blergh", 456789, 2);
+
+
+        dhm.altaCurso("Full Stack", 20001, 3);
+        dhm.altaCurso("Android", 20002, 2);
+
+        dhm.asignarProfesores(20001, 123456, 345678);
+        dhm.asignarProfesores(20002, 234567, 456789);
+
+        dhm.altaAlumno("santiago","marin", 666);
+        dhm.altaAlumno("manuel","marin", 777);
+        dhm.altaAlumno("juan","marin", 888);
+
+        dhm.inscribirAlumno(666, 20001);
+        dhm.inscribirAlumno(777,20001);
+        dhm.inscribirAlumno(666,20002);
+        dhm.inscribirAlumno(777,20002);
+        dhm.inscribirAlumno(888, 20002);
+
+        dhm.bajaProfesor(456789);
+
+        dhm.bajaCurso(20001);
+
 
         }
 
